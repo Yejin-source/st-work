@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatistest.mapper.BoardMapper">
+	<select id="selectAll" parameterType="com.example.mybatistest.dto.Board">
+		SELECT 
+			board_no boardNo <!-- entity가 없기 때문에 알리오스로 필드 이름을 맞춰 주어야 매핑 가능  -->
+			, board_title boardTitle
+		FROM board
+	</select>
+</mapper>

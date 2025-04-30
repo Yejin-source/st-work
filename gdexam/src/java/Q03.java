@@ -1,0 +1,13 @@
+package java;
+
+public class Q03 {
+	
+	public static void main(String[] args) {
+	       int x = 10, y = 10;
+	       int c = ++x + y++;
+	       System.out.println(c);
+	   }
+	
+	// 전치 후치
+	// 답: c는 21!
+}

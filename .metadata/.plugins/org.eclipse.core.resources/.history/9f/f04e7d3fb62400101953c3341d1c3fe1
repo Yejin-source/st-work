@@ -1,0 +1,20 @@
+package gdtest;
+
+public class Q25 {
+	public static void main(String[] args) {
+		String s1 = "Goodee";
+		String s2 = "Goodee"; // 같은 값이 있는지 찾아서 가리킴
+		String s3 = new String("Goodee"); // new는 같은 값이 있어도 무조건 새로 만듦 
+	  
+		// 실행결과
+		System.out.println(s1 == s2); // true
+		System.out.println(s1 == s3); // false
+		  
+		System.out.println(s1.equals(s2)); // true
+		System.out.println(s2.equals(s3)); // true
+		
+		
+		// s1과 s2는 주소값도 같음
+		// s3는 글자 형태는 같지만 주소값이 다름
+	}
+}

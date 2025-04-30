@@ -1,0 +1,12 @@
+package com.example.mybatistest.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class HomeController {
+	@GetMapping({"/", "/home"})
+	public String home() {
+		return "home"; // /WEB-INF/view/home.jsp 포함
+	}
+}

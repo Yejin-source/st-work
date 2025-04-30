@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<!-- uri: 라이브러리 이름 | prefix: 이 이름을 'c'로 사용하겠다는 것 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 자바 코드 대신 EL, JSTL을 사용 : mustache -->
+	<c:forEach var="b" items="${list}"> <!-- 반복문 -->
+		<div>
+			${b.boardNo} ${b.boardTitle}
+			<a href="/remove?boardNo=${b.boardNo}">[삭제]</a>
+		</div>
+	</c:forEach> 
+</body>
+</html>

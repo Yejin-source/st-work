@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Remove Board</title>
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<div class="form-container">
+		{{#msg}}
+			<div class="msg-box">
+				{{msg}}
+			</div>
+		{{/msg}}
+		
+		<h1>❌ 게시판 삭제</h1>
+		
+		<div>
+			<a href="/boardOne?bno={{board.bno}}">← 이전 페이지</a>&nbsp;&nbsp;
+			<a href="/boardList">📑 게시판 목록으로</a><br><br>
+		</div>
+		
+		<form method="post" action="/delete">
+			<input type="hidden" name="bno" value="{{board.bno}}">
+			<div>
+				<label for="title">제목</label>
+				<input type="text" name="title" value="{{board.title}}" id="title" readonly>
+			</div>
+			<div>
+				<label for="pw">비밀번호 확인</label>
+				<input type="password" name="pw" id="pw">
+			</div>
+			<div>
+				<button type="submit">삭제</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>boardOne</h1>
+	<div>
+		{{board.bno}}<br>
+		{{board.title}}
+	</div>
+	
+	<div>
+		첨부파일 <br>
+	</div>
+</body>
+</html>

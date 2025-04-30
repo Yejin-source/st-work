@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+	<!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/style.css?v=2">
+</head>
+<body>
+<!-- include -->
+{{>layouts/header}}
+
+	<div class="container mt-5" style="max-width: 500px;">
+		<div class="card p-4">
+			<div class="card-body">
+				<h4 class="card-title text-center mb-4">로그인</h4>
+				<form method="post" action="/member/login">
+					<div class="mb-3">
+						<label class="form-label">아이디 &nbsp; &nbsp; &nbsp;</label>
+						<input type="text" name="memberId">
+					</div>
+					
+					<div class="mb-3">
+						<label class="form-label">비밀번호  &nbsp;</label>
+						<input type="text" name="memberPw">
+					</div>
+					<div class="d-grid">
+						<button class="btn btn-navy">로그인</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+<!-- include -->
+{{>layouts/footer}}
+</body>
+</html>

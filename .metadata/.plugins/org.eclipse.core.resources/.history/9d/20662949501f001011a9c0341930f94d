@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+{{>layouts/header}}
+
+	<form action="/articles/addBoard" method="post">
+	    <div>
+	        <label>제목</label>
+	        <input type="text" class="form-control" name="title" value="{{title}}">
+	    </div>
+	    <div>
+	        <label>내용</label>
+	        <textarea rows="3" name="content">{{content}}</textarea>
+	    </div>
+	    <button type="submit">Submit</button>
+	</form>
+
+{{>layouts/footer}}
+</body>
+</html>

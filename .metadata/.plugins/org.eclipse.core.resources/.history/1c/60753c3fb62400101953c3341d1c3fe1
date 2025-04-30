@@ -1,0 +1,32 @@
+package gdtest;
+
+public class Q11 {
+
+	public static void main(String[] args) {
+		/*
+		 	문제   클래스에 대한 설명으로 틀린 것을 고르세요
+		 	
+			1번보기   class 는 classification 의 약자로 분류를 의미한다.   
+			2번보기   class 의 이름은 보통 안에 있는 메서드나 변수들을 대표할 수 있는 이름으로 하는 것이 좋다.   
+			3번보기   class 는 하나의 자료형이 될 수 있다.   
+			4번보기   java 파일에는 1개의 클래스만 존재 해야 한다.
+			
+			
+			3번 클래스의 역할 두 가지 -> 클래스는 하나의 자료형이면서 변수의 컨테이너 역할을 함
+			
+			4번 정답 | But 클래스는 public은 될 수 없음
+		 */
+		
+	}
+	
+	class C3 { // Q11$C3.class
+		
+		// 내부 클래스 가능
+	}
+
+}
+
+class C2 { // C2.class
+	
+	// 하나의 파일 안에 여러 클래스 가능
+}

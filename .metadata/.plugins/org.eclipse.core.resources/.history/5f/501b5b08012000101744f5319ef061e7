@@ -1,0 +1,5 @@
+package com.example.fileupload.entity;
+
+public class Board {
+
+}

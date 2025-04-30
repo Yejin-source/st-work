@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<div class="board-container">
+		<a href="/addBoard" class="sketch-btn">✏️ 게시글 작성</a>
+		
+		{{#msg}}
+			<div class="alert alert-dismissible fade show" role="alert">
+				{{msg}}
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+		{{/msg}}
+	
+		<h1>📑 게시판 목록</h1>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>📌 번호</th>
+					<th>📝 제목</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#list}}
+					<tr>
+						<th>{{bno}}</th>
+						<th>
+							<a href="/boardOne?bno={{bno}}">{{title}}</a>
+						</th>
+					</tr>
+				{{/list}}
+			</tbody>
+		</table>
+		
+		<div class="d-flex justify-content-between">
+			<!-- 첫 페이지가 아닌 경우 -->
+			{{^list.isFirst}}
+				<a href="/boardList?currentPage={{prePage}}">← 이전 페이지</a>
+			{{/list.isFirst}}
+		
+			{{#list.hasNext}}
+				<a href="/boardList?curentPage={{nextPage}}">다음 페이지 →</a>
+			{{/list.hasNext}}
+		</div>
+	</div>
+	
+	 <!-- Bootstrap JS -->
+  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

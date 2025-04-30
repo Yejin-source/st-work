@@ -1,0 +1,32 @@
+package gdtest;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+public class Q27 {
+	
+	 public static void main(String[] args) {
+		 
+		  Stack st = new Stack(); // 후입선출 LIFO
+		  Queue q = new LinkedList(); // 선입선출 FIFO
+
+		  st.push("0");
+		  st.push("1");
+		  st.push("2"); // 0/1/2
+
+		  q.offer("0");
+		  q.offer("1");
+		  q.offer("2"); // 0/1/2
+		  
+		  // 들어올 때는 다같이 들어옴
+
+		  while (!st.empty()) {
+			  System.out.println(st.pop());
+		  }
+		  
+		  while (!q.isEmpty()) {
+			  System.out.println(q.poll());
+		  }
+	}
+}

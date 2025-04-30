@@ -1,0 +1,12 @@
+package java;
+
+public class Q05 {
+	
+	public static void main(String[] args) {
+		
+		int x = 1,y = 3; // if 표현식은 boolean 값만 가능
+		// if(x = y) System.out.println(x); // javascript라면 true 여서 3출력
+		
+		// 답은 4번 컴파일 오류가 발생한다
+    }
+}

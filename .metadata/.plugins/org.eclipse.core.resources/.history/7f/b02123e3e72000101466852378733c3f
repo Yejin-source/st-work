@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+body {
+  background-color: #1c3c3c;
+  color: #f5f5dc;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 40px 0;
+}
+
+.board-container {
+  background-color: #2a4d4d;
+  border: 3px dashed #f5f5dc;
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 900px;
+  margin: auto;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+}
+
+.board-container h1 {
+  text-align: center;
+  color: #ffe082;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.table {
+  color: #3c3c3c;
+  background-color: #fffde7; /* 부드러운 파스텔 노란색 */
+  border-collapse: collapse;
+}
+
+.table th {
+  background-color: #fff9c4; /* 약간 더 진한 노랑 */
+color: #3c3c3c;
+border-bottom: 2px solid #fbc02d; /* 진한 노랑 테두리 */
+}
+
+.table td {
+  background-color: #fffde7;
+  border-bottom: 1px dashed #fdd835; /* 점선으로 테이블 느낌 완화 */
+}
+
+.table th, .table td {
+  text-align: center;
+  padding: 12px;
+}
+
+.table a {
+  color: #8e793e; /* 진한 브라운/올리브 계열 */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.table a:hover {
+  color: #5d4821;
+  text-decoration: underline;
+}
+
+.sketch-btn {
+  display: inline-block;
+  background-color: #ffe082;
+  color: #1c3c3c;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 2px 2px 0px #999;
+  margin-bottom: 20px;
+}
+
+.sketch-btn:hover {
+  background-color: #ffd54f;
+}
+
+.alert {
+  background-color: #ffecb3;
+  color: #333;
+  border-left: 6px solid #ffca28;
+}
+
+.btn-close {
+  background-color: #333;
+}
+
+a {
+  color: #c0a35a; /* 링크는 좀 더 진한 올리브톤 */
+}
+
+a:hover {
+  color: #fff;
+}

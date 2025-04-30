@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script>
+		let arr = [];
+		arr.push('빨강');
+		arr.push('주황');
+		arr.push('노랑');
+		
+		console.log(arr[2]); // 노랑
+		console.log(arr[3]); // undefiend
+		
+		arr.push('초록');
+		arr.push('파랑');
+		arr.push('보라');
+		console.log(arr);
+		
+		let arr2 = arr.splice(3, 2);
+		console.log(arr);
+		console.log(arr2);
+		
+		// 자바 스크립트의 배열은 자바의 배열보다는 List<Object>에 가까움
+	</script>
+</head>
+<body>
+
+</body>
+</html>

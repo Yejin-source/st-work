@@ -1,0 +1,18 @@
+package gdtest;
+
+public class Q15 {
+	
+	public static void main(String[] args) {
+		/*
+	      	문제   컬렉션 프레임워크(List,Set,Map)에 대한 설명중 맞는 것은 무엇입니까? 
+	      	
+	        1번보기   컬렉션 프레임워크는 별도의 설치가 필요 하다.   
+	        2번보기   컬렉션 프레임 워크는 collection 인터페이스를 최 상위로 이를 상속 받는 map, set, list 인터페이스가 존재 한다.   
+	        3번보기   ArrayList, LinkedList, Vector 가 사용 메서드가 같은 이유는 같은 List 인터페이스를 구현 받았기 때문이다.   
+	        4번보기   Vector 와 ArrayList 의 차이점은 아무것도 없다.
+	        
+	        
+	        1번 기본 API | java.util.*
+	    */
+	}
+}

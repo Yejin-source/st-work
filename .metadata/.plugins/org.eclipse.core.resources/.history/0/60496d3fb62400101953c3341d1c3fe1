@@ -1,0 +1,53 @@
+package gdtest;
+
+public class Q17 {
+
+	public static void main(String[] args) {
+		
+		// hashcode가 변함
+		String x = "ab";
+		System.out.println("x hashcode: " + x.hashCode());
+		x = "abc";
+		System.out.println(x);
+		System.out.println("x hashcode: " + x.hashCode());
+		
+		
+		// hashcode가 변하지 않음
+		StringBuffer y = new StringBuffer("de");
+		System.out.println("y hashcode: " + y.hashCode());
+		y.append("f");
+		System.out.println(y);
+		System.out.println("y hashcode: " + y.hashCode());
+		
+		
+		// String 타입: 원래 데이터를 건드릴 수 없음 -> 수정이 많으면 느림
+		// StringBuffer 타입: 애초에 크게 만듦 -> 메모리 공간의 낭비가 발생함
+		
+		// 수정이 많이 필요한 경우 String 사용
+		// 수정을 많이 필요하지 않은 경우 StringBuffer 사용
+		
+		
+		// Q. 17
+		StringBuffer a = new StringBuffer("A");
+		StringBuffer b = new StringBuffer("B");
+		
+		// 디버깅 추가
+		System.out.println("a hashcode: " + a.hashCode());
+		System.out.println("b hashcode: " + b.hashCode());
+		
+		operate(a, b);
+		System.out.println(a + "," + b);
+			
+	}
+	
+	static void operate(StringBuffer x, StringBuffer y) {
+		x.append(y);
+		
+		// 디버깅 추가
+		System.out.println("x: " + x.toString()); // StringBuffer는 문자가 아니기 때문에 toString()으로 출력
+		System.out.println("y: " + y.toString());
+		
+		y = x; // AB,B
+	}
+
+}

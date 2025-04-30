@@ -1,0 +1,3 @@
+spring.application.name=app-js
+
+server.port=80

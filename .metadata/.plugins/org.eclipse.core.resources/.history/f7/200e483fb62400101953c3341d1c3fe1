@@ -1,0 +1,39 @@
+package gdtest;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class Q26 {
+	
+	public static void main(String[] args) {
+		String[] arr = { "1", "2", "9", "7", "4", "6", "1", "7", "0" };
+		Set<String> set = new HashSet<>(); // Set: 중복을 허용하지 않는 자료구조
+										   // HashSet: 중복 제거, 순서는 신경쓰지 않음
+		for(String s : arr) {
+			set.add(s); // 중복 없는 값만 남음 -> "1", "2", "9", "7", "4", "6", "0" (순서 보장 X)
+		}
+		
+		List<String> list = new ArrayList<>(set); // set -> list : 순서가 필요
+		Collections.sort(list); // 오름차순 정렬 | sort() 메서드: 정렬
+		// Math 클래스 : static 숫자(매개값) 수학 메서드
+		// Collections : static collection 핸들링 메서드
+  
+		for(String s : list) { 
+			System.out.println(s); // 중복 X, 오름차순으로 정렬
+		}
+	 
+		/*
+			정답
+			0
+			1
+			2
+			4
+			6
+			7
+			9
+		*/ 
+	}
+}

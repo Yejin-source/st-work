@@ -1,0 +1,18 @@
+package gdtest;
+
+public class Q25 {
+	public class Main {
+		public static void main(String[] args) {
+			String s1 = "Goodee";
+			String s2 = "Goodee";
+			String s3 = new String("Goodee");
+		  
+			// 실행결과
+			System.out.println(s1 == s2); // true
+			System.out.println(s1 == s3); // false
+			  
+			System.out.println(s1.equals(s2)); // true
+			System.out.println(s2.equals(s3)); // true
+		}
+	}
+}

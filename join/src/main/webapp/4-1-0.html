@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script>
+		let arr = [];
+		arr.push('빨강');
+		arr.push('주황');
+		arr.push('노랑');
+		
+		console.log(arr[2]); // 노랑
+		console.log(arr[3]); // undefiend
+		
+		arr.push('초록');
+		arr.push('파랑');
+		arr.push('보라');
+		console.log(arr);
+		
+		let arr2 = arr.splice(3, 2);
+		console.log(arr);
+		console.log(arr2);
+		
+		console.log(arr.indexOf('파랑'));
+		
+		let str = "동해물과 백두산이 마르고 닳도록";
+		console.log(str[3]);
+		console.log(str.indexOf("백두산"));
+		
+		// 자바 스크립트의 배열은 자바의 배열보다는 List<Object>에 가까움
+		
+		
+		console.log(arr);
+		arr.filter(function(x) {console.log(x);}); // 람다함수를 arr 순환하면서 요소를 매개값으로 실행
+		arr.filter((x) => console.log(x));
+		let arr3 = arr.filter((x) => x);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

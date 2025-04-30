@@ -1,0 +1,5 @@
+package com.example.mybatistest.mapper;
+
+public interface Test {
+
+}

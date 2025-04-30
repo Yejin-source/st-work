@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;app-js/src/main/webapp/formValedation.html&apos; to &apos;formValidation.html&apos;" description="Rename resource &apos;formValedation.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/formValedation.html" name="formValidation.html" stamp="1745903666778" updateReferences="true"/>
+</session>

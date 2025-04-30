@@ -1,0 +1,10 @@
+package com.example.fileupload.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.fileupload.entity.Board;
+import com.example.fileupload.entity.BoardMapping;
+
+public interface BoardRepository extends JpaRepository<Board, Integer> {
+	BoardMapping findAllby(); // Board가 아니라 BoardMapping 타입으로 받기
+}

@@ -1,0 +1,13 @@
+package java;
+
+public class Q29 {
+	public static void main(String[] args) {
+		int n = 0;
+		for(int i = 0; i<999; i++) {
+			if(i % 3 == 0 && i % 2 == 0) { // 0 ~ 999 사이의 2, 3의 최대공배수
+				n = i;
+			}
+		}
+		System.out.print(n); // 996
+	}
+}

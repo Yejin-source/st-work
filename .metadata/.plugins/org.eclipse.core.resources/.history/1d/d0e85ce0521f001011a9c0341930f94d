@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+{{>layouts/header}}
+
+	{{#msg}}
+		<div>{{msg}}</div>
+	{{/msg}}
+	
+	<table>
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>Title</th>
+				<th>Content</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#list}} <!-- 반복문 -->
+				<tr>
+					<td>{{no}}</td>
+					<td>{{title}}</td>
+					<td>{{content}}</td>
+				</tr>
+			{{/list}}
+		</tbody>
+	</table>
+	
+	<div>
+		<!-- 첫 페이지가 아니라면 -->
+		{{^list.isFirst}}
+			<a href="/board/boardList?currentPage={{prePage}}&word={{word}}">이전 페이지</a>
+		{{/list.isFirst}}
+	</div>
+	
+	<div>
+		{{#list.hasNext}}
+			<a href="/board/boardList?currentPage={{nextPage}}&word={{word}}">다음 페이지</a>
+		{{/list.hasNext}}
+	</div>
+
+{{>layouts/footer}}
+</body>
+</html>

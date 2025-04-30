@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<a href="/boardList">[게시판 목록으로]</a>
+		<a href="/boardOne?bno={{board.bno}}">[이전 페이지]</a>
+	</div>
+	
+	{{#msg}}
+		<div>
+			{{msg}}
+		</div>
+	{{/msg}}
+	
+	
+	<h1>게시판 수정</h1>
+	
+	<form method="post" action="/update">
+		<input type="hidden" name="bno" value="{{board.bno}}">
+		<div>
+			title : <input type="text" name="title" value="{{board.title}}">
+		</div>
+		<div>
+			비밀번호 확인 : <input type="password" name="pw">
+		</div>
+		<div>
+			<button type="submit">수정</button>
+		</div>
+	</form>
+</body>
+</html>

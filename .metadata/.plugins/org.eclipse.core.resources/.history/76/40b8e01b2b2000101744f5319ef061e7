@@ -1,0 +1,23 @@
+package com.example.jpaboard.repository;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.jpaboard.entity.Member;
+import com.example.jpaboard.entity.MemberOnlyMemberId;
+
+public interface MemberRepository extends JpaRepository<Member, Integer> {
+	
+	// member_id 중복검사: existsBy앤티티컬럼필드  
+	boolean existsByMemberId(String memberId); // 직접 구현한 것이 아니라 원래 구현되어 있음
+	
+	// 로그인 하는 추상메서드: findBy앤티티컬럼필드 ... And엔티티컬럼필드
+	MemberOnlyMemberId findByMemberIdAndMemberPw(String memgerId, String memberPw);
+	
+	// 페이징
+	// Page<Member> findAll(Pageable pageable); // pw 노출
+	
+	// 멤버 목록 + 페이징
+	Page<MemberOnlyMemberId> findByMemberIdWithoutPw(Pageable pageable, String word); // pw 노출 X
+}

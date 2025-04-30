@@ -1,0 +1,147 @@
+package com.example.jpaboard.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.example.jpaboard.dto.MemberForm;
+import com.example.jpaboard.entity.Member;
+import com.example.jpaboard.entity.MemberOnlyMemberId;
+import com.example.jpaboard.repository.MemberRepository;
+import com.example.jpaboard.util.SHA256Util;
+
+import jakarta.servlet.http.HttpSession;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller
+public class MemberController {
+	
+	@Autowired // 의존성 주입
+	MemberRepository memberRepository;
+	
+	// 회원가입 + member_id 중복확인
+	@GetMapping("/member/joinMember")
+	public String joinMember() {
+		return "member/joinMember";
+	}
+	
+	@PostMapping("/member/joinMember")
+	public String joinMember(MemberForm memberForm, RedirectAttributes rda) {
+		
+		log.debug(memberForm.toString());
+		log.debug("isMemberId : " + memberRepository.existsByMemberId(memberForm.getMemberId()));
+		
+		if(memberRepository.existsByMemberId(memberForm.getMemberId())) {
+			rda.addFlashAttribute("msg", memberForm.getMemberId()+"ID가 이미 존재합니다.");
+			return "redirect:/member/joinMember";
+		}
+		
+		// false인 경우 회원가입 진행
+		// memberForm.getMemberPw()값을 SHA-256 방식으로 암호화
+		memberForm.setMemberPw(SHA256Util.encoding(memberForm.getMemberPw())); 
+		
+		Member member = memberForm.toEntity();
+		memberRepository.save(member); // entity 저장 -> 최종 커밋 시 -> 테이블에 행이 추가됨 (insert)
+		
+		return "redirect:/member/login";
+	}
+	
+	
+	// 로그인 폼
+	@GetMapping("/member/login") 
+	public String login() {
+		return "member/login";
+	}
+	
+	// 로그인 액션
+	@PostMapping("/member/login")
+	public String login(HttpSession session, MemberForm memberForm, RedirectAttributes rda) {
+		// pw 암호화
+		memberForm.setMemberPw(SHA256Util.encoding(memberForm.getMemberPw())); // 사용자가 입력한 비밀번호 암호화 -> 입력값 (아직 DB 저장 X)
+		// 로그인 확인 메서드
+		MemberOnlyMemberId loginMember
+			= memberRepository.findByMemberIdAndMemberPw(memberForm.getMemberId(), memberForm.getMemberPw());
+		
+		if(loginMember == null) {
+			log.debug("로그인 실패");
+			rda.addFlashAttribute("msg", "로그인 실패");
+			return "redirect:/member/login";
+		}
+		
+		// 로그인 성공 코드 구현
+		log.debug("로그인 성공");
+		session.setAttribute("loginMember", loginMember); // ISSUE: pw 정보까지 세션에 저장됨
+		return "redirect:/member/memberList";
+	}
+	
+	// 로그아웃
+	@GetMapping("/member/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/member/login";
+	}
+	
+	
+	// 회원 목록
+	@GetMapping("/member/memberList")
+	public String memberList(HttpSession session) {
+		//session 인증/인가 검사
+		if(session.getAttribute("loginMember") == null) {
+			return "redirect:/member/login";
+		}
+		
+		// 사용자 목록 + 페이징 + id 검색
+		// Page<Member> = memberRepository.findByMemberIdContaining(Pageable pageable, String word);
+		
+		return "member/memberList";
+	}
+	
+	
+	// 회원 정보 수정
+	@GetMapping("/member/modifyMemberPw")
+	public String modifyMemberPw(HttpSession session) {
+		if(session.getAttribute("loginMember") == null) {
+			return "redirect:/member/login";
+		}
+		return "member/modifyMemberPw";
+	}
+	
+	// 회원 정보 수정 기능
+	@PostMapping("/member/update")
+	public String update(RedirectAttributes rda, @RequestParam(value = "oldPw") String oldPw
+												, @RequestParam(value = "newPw") String newPw
+												, @RequestParam(value = "checkPw") String checkPw) {
+		// 비밀번호가 일치하지 않은 경우 
+		
+		
+		// 새 비밀번호와 비밀번호 확인이 일치하지 않는 경우
+		if(!newPw.equals(checkPw)) {
+			log.debug("회원 정보 수정 실패");
+			rda.addFlashAttribute("msg", "새 비밀번호가 일치하지 않습니다.");
+			return "member/modifyMemberPw";
+		}
+		
+		
+		return "redirect:/member/update";
+	}
+	
+	
+	// 회원 탈퇴
+	@GetMapping("/member/removeMember")
+	public String removeMember(HttpSession session) {
+		if(session.getAttribute("loginMember") == null) {
+			return "redirect:/member/login";
+		}
+		return "meber/removeMember";
+	}
+	
+	// 회원 탈퇴 기능
+	@PostMapping("/member/delete")
+	public String delete(HttpSession session) {
+		return "redirect:/member/delete";
+	}
+}

@@ -1,0 +1,35 @@
+package gdtest;
+
+public class Q24 {
+	public static void main(String[] args) {
+		A a = new B();
+		a.paint();
+		a.draw();
+	}
+}
+
+class A {
+	public void paint() {
+		System.out.print("A");
+		draw();
+	}
+	
+	public void draw() {
+		System.out.print("B"); // 1. 여기로 감
+		draw(); // this.draw(); 
+	}
+}
+
+class B extends A {
+	public void paint() {
+		super.draw(); // 1. 실행하면
+		System.out.print("C"); 
+	}
+	
+	public void draw() {
+		System.out.print("D"); 
+	}
+}
+
+
+// super가 아니면 전부 this

@@ -1,0 +1,30 @@
+package gdtest;
+
+public class Q06 {
+
+	public static void main(String[] args) {
+		
+		int x = 10; // x의 자료형으로 가능한 내용 찾기
+		switch(x) {
+		
+		default:
+			System.out.println("Hello");
+		
+		}
+	}
+
+    /*
+     	1번보기   byte, short, int, long  			| long 불가능 
+		2번보기   int, long, float, double   			| int 제외 다 불가능
+		3번보기   Byte, Character, Integer, String   	| String 불가능
+		4번보기   Byte, Character, Integer, Long		| Long 불가능
+		5번보기 	답이 없음
+		
+		
+		2번 자바에서 실수는 정확한 수가 아님 -> 오차가 있는 수 -> float, double 불가능
+		3번 case문에서는 다 가능
+		4번 Character는 숫자로 변환되기 때문에 가능
+		5번 정답
+    */
+		
+}

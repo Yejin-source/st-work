@@ -1,0 +1,5 @@
+package com.example.jpa2.controller;
+
+public class TestController {
+
+}

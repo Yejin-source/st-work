@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib perfix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<!-- uri: 라이브러리 이름 | perfix: 이 이름을 'c'로 사용하겠다는 것 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 자바코드 X 대신 EL, JSTL -->
+	<c:forEach var="" items="${list}"> <!-- 반복문 -->
+		<div>
+			${b.boardNo} ${b.boardTitle}
+		</div>
+	</c:forEach> 
+</body>
+</html>

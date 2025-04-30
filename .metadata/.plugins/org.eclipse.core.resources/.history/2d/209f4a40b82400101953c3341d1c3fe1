@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		let x = 90;
+		if(x > 90) {
+			console.log("A");
+		} else if(x > 80) {
+			console.log("B");
+		} else {
+			console.log("C");
+		}
+		
+		if(x = 10) {
+			console.log("참 조건");
+		} else {
+			console.log("거짓 조건");
+		}
+	</script>
+</body>
+</html>

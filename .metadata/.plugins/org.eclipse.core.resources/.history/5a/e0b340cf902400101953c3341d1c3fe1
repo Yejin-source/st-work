@@ -1,0 +1,29 @@
+package gdtest;
+
+public class Q04 {
+	
+	public static void main(String[] args) {
+		
+		/*
+	  	다음 중 Java에서 부정(논리 NOT) 연산자는 무엇입니까?
+		1번보기   &&   
+		2번보기   ||   
+		3번보기   !   
+		4번보기   &
+		 */
+		
+		int x = 1;
+		int y = 1;
+		System.out.println(x != 1 && ++x == 2); // 논리연산자 false && true --> false
+		System.out.println(y != 1 & ++y == 2); // 비트연산자 false & true --> false
+		
+		// 비트연산자
+		// 앞의 내용과 상관없이 무조건 뒤까지 실행함 -> 속도가 느림
+		
+		System.out.println("x: " + x);
+		System.out.println("y: " + y);
+		
+		
+		
+	}
+}

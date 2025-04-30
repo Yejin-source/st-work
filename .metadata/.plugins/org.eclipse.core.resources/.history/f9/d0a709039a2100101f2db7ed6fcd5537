@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.student.StudentMapper">
+	<select id="selectAll" resultType="com.example.student.Student">
+	</select>
+	<select id="selectOneByName" resultType="com.example.student.Student"
+									parameterType="String">
+	</select>
+	
+	<insert id="insert" parameterType="com.example.student.Student">
+	</insert>
+	<update id="update" parameterType="com.example.student.Student">
+	</update>
+	<delete id="delete" parameterType="String">
+	</delete>
+</mapper>

@@ -1,0 +1,55 @@
+package com.example.student;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController 
+// @Controller + @ResponseBody
+public class StudentController {
+	@Autowired StudentService studentService;
+	
+	@GetMapping("/students")
+	public List<Student> studentList() {
+		return studentService.getAll(); // List<Student> -> JSON 문자열로 변경
+	}
+	
+	@GetMapping("/student/{name}")
+	public Student studentOne(@PathVariable(value = "name") String name) {
+		return studentService.getOneByName(name);
+	}
+	
+	@PostMapping("student")
+	public Student add(@RequestBody Student student) {
+		int row = studentService.add(student);
+		if(row == 1) {
+			return student;
+		}
+		return null;
+	}
+	
+	@PatchMapping("student")
+	public Student modify(@RequestBody Student student) {
+		int row = studentService.modify(student);
+		if(row == 1) {
+			return student;
+		}
+		return null;
+	}
+	
+	@DeleteMapping("/student/{name}")
+	public String remove(@PathVariable(value = "name") String name) {
+		int row = studentService.remove(name);
+		if(row == 1) {
+			return name+"님 삭제 성공";
+		}
+		return name+"님 삭제 실패";
+	}
+}
