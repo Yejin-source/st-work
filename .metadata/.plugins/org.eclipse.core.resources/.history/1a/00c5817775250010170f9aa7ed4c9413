@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<button type="button" onclick="lotto()">로또번호생성</button>
+	<hr>
+	<textarea rows="1" cols="50" id="lottoNumber"></textarea>
+	<script>
+		let lotto = function() { // let: 변수 선언 | function: 함수 선언
+			let balls = new Array(45);
+			for(let i=0; i<balls.length; i++) {
+				balls[i] = i+1; // 1 ~ 45
+			}
+			console.log(balls); // 초기화 1 ~ 45
+			
+			// shuffle
+			// TODO balls shuffle... Math.random()...
+			console.log(balls); // 섞기 후 ? ~ ?
+					
+			let temp = Math.random(balls);
+							
+			for(let i=0; i<balls.length; i++) {
+				temp = temp[i];
+			}
+			
+			temp.slice(0, 6);
+					
+			let result = balls.slice(0, 6); // index 0값 ~ index 5값
+			let output = '';
+			for(let i=0; i<result.length; i++) {
+				output = output + result[i] + ' ';
+			}
+				
+			document.querySelector('#lottoNumber').value = output;
+		}
+	</script>
+</body>
+</html>

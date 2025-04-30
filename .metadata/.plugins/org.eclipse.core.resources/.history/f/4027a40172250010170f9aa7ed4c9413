@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<button type="button" onclick="lotto()">로또번호생성</button>
+	<hr>
+	<textarea rows="1" cols="50" id="lottoNumber"></textarea>
+	<script>
+		let lotto = function() {
+			let balls = new Array(45);
+			for(let i in balls) {
+				balls[i] = i+1; // 1 ~ 45
+			}
+			console.log(balls); // 1 ~ 45
+		}
+	</script>
+</body>
+</html>

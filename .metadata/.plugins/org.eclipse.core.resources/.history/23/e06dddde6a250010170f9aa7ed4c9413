@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		function hello() { // {}안의 모든 코드(명령)들을 hello 이름을 부르겠다는 것 -> 코드의 집합
+			alert('hello');
+		}
+		
+		hello(); // 함수 호출
+		
+		let bye function () {
+			alert('bye');
+		};
+		
+		bye();
+	</script>
+</body>
+</html>

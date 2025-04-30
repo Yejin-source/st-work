@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		// 함수 위주
+		let carMove = function() {
+			console.log('차를 타고 간다');
+		}
+	
+		let cycleMove = function() {
+			console.log('자전거를 타고 간다');
+		}
+	
+		let move = function(f) {
+			f();		
+		}
+		
+		
+		// 데이터 위주
+		let move2 = function(str) {
+			if(str == '차') {
+				console.log('차를 타고 간다');
+			} else if(str == '자전거') {
+				console.log('자전거를 타고 간다');
+			}
+		}
+		
+		move(carMove);
+		move(cycleMove);
+		move();
+		move2();
+	</script>
+</body>
+</html>

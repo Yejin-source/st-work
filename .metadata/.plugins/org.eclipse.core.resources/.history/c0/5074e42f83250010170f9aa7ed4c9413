@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		let isLeapYear = function(year) {
+			// year가 입력되지 않으면 undefined
+			return (year % 4 == 0) && (year % 100 != 0) || (year % 4 == 0);
+		}; // 입력값은 숫자 하나이고, 매개값은 bool
+		
+		console.log('2020년', isLeapYear(2020));
+		console.log('2010년', isLeapYear(2010));
+		console.log('년', isLeapYear());
+		
+		let sumAll = function(a, b) {
+			let output = 0;
+			for(let i=a; i<=b; i++) {
+				output += i;
+			}
+			return output;
+		}; // 숫자 2개 입력, 숫자 하나 반환
+		console.log('7~50합', sumAll(7, 50))
+		
+		
+		// 최솟값, 최댓값
+		let min = function(array) {
+			let output = array[0];
+			for(let item of array) {
+				if(output > item) {
+					output = item;
+				}
+			}
+			return output; // 최솟값
+		}
+		console.log(min([3, 5, 1, 7, 2, 9]));
+		console.log(min(['b', 'a', 'c']));
+		
+
+		// 가변 인수
+		let sample = function(...args) {
+			for(let a of args) {
+				console.log(a % 2 ==0);
+			}
+		}
+		sample(3, 4, 'a', 7);
+		
+		sample([2, 3, 4, 5]);
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		// 익명함수 즉시 호출
+		(function () {alert('헤헤');})();
+		
+		// f1(); // 익명함수는 코드의 순서가 만들어진 후에 호출 가능
+		f2();
+		
+		// 즉시 호출이 아닌 경우 익명함수는 변수에 대입해서 사용하면 됨
+		let f1 = function () {alert('헹');};
+		
+		// 선언적합수 : 호이스팅이 발생 -> 실행 전에 함수 선언부를 코드의 첫 라인으로 이동시킴
+		function f2 () {
+			alert('우우');
+		};
+	</script>
+</body>
+</html>

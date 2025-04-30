@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		// API
+		let am = function() {
+			alert('아침먹자');
+		};
+		
+		let pm = function() {
+			alert('점심먹자');
+		};
+		
+		// 구조적 프로그래밍
+		const today = new Date();
+		const hour = today.getHours();
+		
+		if(hour < 12) {
+			am();
+		} else {
+			pm();
+		}
+		
+		// 함수형 프로그래밍 API
+		let eat = function(amORpm) {
+			amORpm();
+		}
+		
+		if(hour < 12) {
+			eat(am);
+		} else {
+			eat(pm);
+		}
+	</script>
+</body>
+</html>

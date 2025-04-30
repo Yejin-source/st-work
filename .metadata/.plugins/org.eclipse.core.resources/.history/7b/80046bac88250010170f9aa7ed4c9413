@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		let carMove = function() {
+			console.log('차를 타고 간다');
+		}
+	
+		let cycleMove = function() {
+			console.log('자전거를 타고 간다');
+		}
+	
+		function move(f) {
+			f();		
+		}
+		
+		move(carMove);
+		move(cycleMove);
+	</script>
+</body>
+</html>
