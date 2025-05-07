@@ -1,7 +1,0 @@
-package com.example.jpa2.repository;
-
-import com.example.jpa2.entity.Dept;
-
-public class DeptRepository extends JpaRepository<Dept, Integer> {
-
-}

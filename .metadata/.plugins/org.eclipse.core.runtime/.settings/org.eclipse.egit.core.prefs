@@ -1,4 +1,4 @@
-GitRepositoriesView.GitDirectories=D\:\\spring\\st-work\\fileupload\\.git;D\:\\git-project\\jpaboard\\.git;D\:\\spring\\st-work\\jpaboard\\.git;
-GitRepositoriesView.GitDirectories.relative=fileupload\\.git;D\:\\git-project\\jpaboard\\.git;jpaboard\\.git;
+GitRepositoriesView.GitDirectories=D\:\\spring\\st-work\\fileupload\\.git;D\:\\git-project\\jpaboard\\.git;D\:\\spring\\st-work\\jpaboard\\.git;D\:\\spring\\st-work\\.git;
+GitRepositoriesView.GitDirectories.relative=fileupload\\.git;D\:\\git-project\\jpaboard\\.git;jpaboard\\.git;.git;
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1
