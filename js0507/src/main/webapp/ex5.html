@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="/test.js" type="text/javascript"></script>
+
+<script>
+	console.log(x);
+
+	// 충돌할 경우 이렇게 해결 가능
+	{
+		let y = 100;
+		console.log(y);
+	}
+	
+	console.log(y); // test.js : y
+	
+	(function(){
+		let y= 777;
+		console.log(y);
+	})();
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

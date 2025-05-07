@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	function callThreeTimes(callback) {
+		for(let i=0; i<3; i++) {
+			callback(i); // callback 매개변수는 함수코드가 입력되어야 함 
+						// 함수 호출연산자를 붙일 수 있다 -> callback은 함수
+		}
+	}
+	
+	function print(i) {
+		console.log(`${i}번째 함수 호출`);
+	}
+	
+	// callThreeTimes(7); 매개값으로 함수가 입력되지 않아서 error
+	callThreeTimes(print); // callback = print
+	
+	// 익명 함수를 사용
+	callThreeTimes(function(i) {
+		console.log(`${i}번째 (익명)함수 호출`);
+	});
+	
+	// 화살표 함수 - 객체를 가리키는 this라는 키워드 사용 X -> 메서드를 만들 때 사용 X
+	callThreeTimes((i)=>{
+		console.log(`${i}번째 (화살표 익명)함수 호출`);
+	});
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
