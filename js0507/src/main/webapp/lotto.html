@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Lotto</title>
+<link rel="stylesheet" href="css/lotto.css">	
+</head>
+<body>
+	<div class="card">
+		<h1 class="main-title">🎱 로또 추첨기</h1>
+		<div>state : <span id="stateVal"></span></div>
+	
+		<div class="lotto-container">
+			<div id="num1" class="lotto-ball">0</div>
+			<div id="num2" class="lotto-ball">0</div>
+			<div id="num3" class="lotto-ball">0</div>
+			<div id="num4" class="lotto-ball">0</div>
+			<div id="num5" class="lotto-ball">0</div>
+			<div id="num6" class="lotto-ball">0</div>
+		</div>
+		
+		<div>
+			<button id="start" type="button">start</button>
+			<button id="end" type="button">end</button>
+		</div>
+	</div>
+	
+	<script>
+	
+		// 번호에 따라 색상을 정하는 함수
+		function getColorClass(num) {
+			if(num <= 10) return 'yellow';
+			if(num <= 20) return 'blue';
+			if(num <= 30) return 'red';
+			if(num <= 40) return 'gray';
+			return 'green';
+		}
+	
+		
+		// 6개의 로또번호생성
+		let arr = new Array(45);
+		for(let i=0; i<arr.length; i++) {
+			arr[i] = i+1; // 1 ~ 45
+		}
+		// 배열 섞기
+		for(let i=0; i<10000; i++) {
+			let temp = arr[0];
+			let rnum = Math.floor(Math.random()*45); // 랜덤 인덱스 생성
+			arr[0] = arr[rnum];
+			arr[rnum] = temp;
+		} // 0 ~ 5까지만 로또번호로 사용
+	
+	
+		// 진행 상태값 변수
+		let state = 'end';
+		document.querySelector('#stateVal').innerHTML = state;
+		
+		let num1, num2, num3, num4, num5, num6;
+		
+		document.querySelector('#start').addEventListener('click', function(){
+			// start 진행 중일 때는 클릭 X -> state값이 end 상태에서만 클릭
+			if(state == 'start') {
+				// alert('state값이 start입니다');
+				return;
+			}
+			
+			// 상태를 start로 변경 후 화면에 표시
+			state = 'start';
+			document.querySelector('#stateVal').innerHTML = state;
+			
+			// 랜덤 숫자 표시
+			num1 = setInterval(function(){
+				let n = Math.floor(Math.random()*45) + 1;
+				let el = document.querySelector('#num1');
+				el.innerHTML = n;
+				el.className = 'lotto-ball ' + getColorClass(n); // 두 개의 클래스 동시 적용
+			} , 50);
+			
+			num2 = setInterval(function(){
+				let n = Math.floor(Math.random()*45) + 1;
+				let el = document.querySelector('#num2');
+				el.innerHTML = n;
+				el.className = 'lotto-ball ' + getColorClass(n);
+			} , 50);
+			
+			num3 = setInterval(function(){
+				let n = Math.floor(Math.random()*45) + 1;
+				let el = document.querySelector('#num3');
+				el.innerHTML = n;
+				el.className = 'lotto-ball ' + getColorClass(n);
+			} , 50);
+			
+			num4 = setInterval(function(){
+				let n = Math.floor(Math.random()*45) + 1;
+				let el = document.querySelector('#num4');
+				el.innerHTML = n;
+				el.className = 'lotto-ball ' + getColorClass(n);
+			} , 50);
+			
+			num5 = setInterval(function(){
+				let n = Math.floor(Math.random()*45) + 1;
+				let el = document.querySelector('#num5');
+				el.innerHTML = n;
+				el.className = 'lotto-ball ' + getColorClass(n);
+			} , 50);
+			
+			num6 = setInterval(function(){
+				let n = Math.floor(Math.random()*45) + 1;
+				let el = document.querySelector('#num6');
+				el.innerHTML = n;
+				el.className = 'lotto-ball ' + getColorClass(n);
+			} , 50);
+	
+			console.log('start button click');
+		});
+		
+		document.querySelector('#end').addEventListener('click', function(){
+			// start 진행 중일 때만 클릭 O -> state값이 start 상태에서만 클릭
+			if(state == 'end') {
+				// alert('state값이 end입니다');
+				return;
+			}
+			
+			// 상태를 end로 변경
+			state = 'end';
+			
+			// 시간차로 숫자 출력 | 1초 간격
+			setTimeout(function(){
+				clearInterval(num1);
+		        let el = document.querySelector('#num1');
+		        el.innerHTML = arr[0];
+		        el.className = 'lotto-ball ' + getColorClass(arr[0]);
+			}, 1);
+			
+			setTimeout(function(){
+				clearInterval(num2);
+			  	let el = document.querySelector('#num2');
+		        el.innerHTML = arr[1];
+		        el.className = 'lotto-ball ' + getColorClass(arr[1]);
+			}, 1000);
+			
+			setTimeout(function(){
+				clearInterval(num3);
+				let el = document.querySelector('#num3');
+		        el.innerHTML = arr[2];
+		        el.className = 'lotto-ball ' + getColorClass(arr[2]);
+			}, 2000);
+			
+			setTimeout(function(){
+				clearInterval(num4);
+				let el = document.querySelector('#num4');
+		        el.innerHTML = arr[3];
+		        el.className = 'lotto-ball ' + getColorClass(arr[3]);
+			}, 3000);
+			
+			setTimeout(function(){
+				clearInterval(num5);
+				let el = document.querySelector('#num5');
+		        el.innerHTML = arr[4];
+		        el.className = 'lotto-ball ' + getColorClass(arr[4]);
+			}, 4000);
+			
+			setTimeout(function(){
+				clearInterval(num6);
+				let el = document.querySelector('#num6');
+		        el.innerHTML = arr[5];
+		        el.className = 'lotto-ball ' + getColorClass(arr[5]);
+			}, 5000);
+
+			
+			// 화면에 상태값 갱신
+			document.querySelector('#stateVal').innerHTML = state;
+			
+			console.log('end button click');
+		});
+		
+	</script>
+</body>
+</html>
