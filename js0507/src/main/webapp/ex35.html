@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="one"></div>
+	<div id="two"></div>
+	
+	<script>
+		document.querySelector('#one').textContent = '&#128512;'; // 이모지 출력 X
+		document.querySelector('#two').innerHTML = '&#128512;';   // 이모지 출력 O
+	</script>
+</body>
+</html>

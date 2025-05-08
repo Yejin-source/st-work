@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+
+	<script>	
+		// 랜덤 무지개 색상 (중복 X)
+		// 무지개 색상 배열
+		let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'navy', 'purple'];
+		for(let i=0; i<100000; i++) {
+			let temp = colors[0];	
+			let rnum = Math.floor(Math.random()*7);
+			colors[0] = colors[rnum];
+			colors[rnum] = temp;
+		}
+		
+		let t1 = document.querySelectorAll('h1');
+		console.log(t1); // <h1> ~
+		t1.forEach(function(item, index) {	
+			item.textContent = '안녕하세요';
+			item.style.color = colors[index];
+			item.style.backgroundColor = 'rgb(0, 0, 0)';
+			item.style.padding = '10px'; // 안쪽 여백
+		});
+		
+	/*
+		t1.textContent = '안녕하세요';
+		t1.style.color = '#FFFFFF';
+		t1.style.backgroundColor = '#000000';
+		t1.style.padding = '10px'; // 안쪽 여백
+	*/
+	</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+	body {
+	    background-color: gray;
+	    font-family: 'Segoe UI', sans-serif;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    height: 100vh;
+	    margin: 0;
+	}
+	
+	.switch-body {
+	    display: flex;
+	    align-items: center;
+	    gap: 20px;
+	}
+	
+	
+	.card {
+		background: linear-gradient(#f9f9f9, #e0e0e0);
+		border: 4px solid #555;
+		border-radius: 28px; 
+		padding: 24px;
+		box-shadow: 
+		inset 0 0 6px #aaa,
+		0 8px 20px rgba(0, 0, 0, 0.25);
+	}
+	
+	table {
+	    width: 100%;
+	    border-collapse: collapse;
+	}
+	
+	td {
+	    padding: 6px;
+	    width: 25%;
+	}
+	
+	input[type="text"] {
+	  	font-family: 'Segoe UI', sans-serif;
+	    width: 100%;
+	    padding: 14px 20px;
+	    font-size: 24px;
+	    border: none;
+	    border-radius: 10px;
+	    background-color: #000;
+	    color: #8cff66;
+	    text-align: right;
+	    margin: 4px 0;  
+	    box-shadow: inset 0 0 5px #111;
+	    box-sizing: border-box;    
+	}
+	
+	button {
+	    width: 100%;
+	    height: 60px;
+	    font-size: 18px;
+	    border: none;
+	    border-radius: 12px;
+	    color: white;
+	    font-weight: bold;
+	    cursor: pointer;
+	    transition: transform 0.1s ease;
+	}
+	
+	button:hover {
+	    transform: scale(1.05);
+	}
+	
+	td[colspan="4"] {
+	    padding-bottom: 10px;
+	}
+	
+	/* 버튼 컬러 (닌텐도 컬러 감성) */
+	#seven, #four, #one, #del {
+	    background-color: #e53935;
+	}
+	
+	#eight, #five, #two, #zero {
+	    background-color: #1e88e5;
+	}
+	
+	#nine, #six, #three, #neg {
+	    background-color: #26a69a;
+	}
+	
+	#newQuestion {
+	    background-color: #ff7043;
+	}
+	
+	#submit {
+	    background-color: #66bb6a;
+}

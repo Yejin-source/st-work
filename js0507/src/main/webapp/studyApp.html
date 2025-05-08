@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Study App</title>
+	<link rel="stylesheet" href="css/studyApp.css">	
+</head>
+<body>
+	<div class="switch-body">
+		<div class="card">
+			<table>
+				<tr>
+					<td colspan="4">🎮 문제 <input type="text" id="question" readonly></td>
+				</tr>
+				<tr>
+					<td colspan="4">📥 답 <input type="text" id="answer" readonly></td>
+				</tr>
+				<tr>
+					<td><button type="button" id="seven">7</button></td>
+					<td><button type="button" id="eight">8</button></td>
+					<td><button type="button" id="nine">9</button></td>
+					<td><button type="button" id="newQuestion">next</button></td>
+				</tr>
+				<tr>
+					<td><button type="button" id="four">4</button></td>
+					<td><button type="button" id="five">5</button></td>
+					<td><button type="button" id="six">6</button></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><button type="button" id="one">1</button></td>
+					<td><button type="button" id="two">2</button></td>
+					<td><button type="button" id="three">3</button></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><button type="button" id="del">del</button></td>
+					<td><button type="button" id="zero">0</button></td>
+					<td><button type="button" id="neg">-</button></td>
+					<td><button type="button" id="submit">답 제출</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+	<script>
+	
+		// 문제 정답 저장 변수
+		let result = 0; 
+		
+		// 문제 출제
+		document.querySelector('#newQuestion').addEventListener('click', function() {
+		
+			// 피연산자
+			let x = Math.floor(Math.random() * 101); // 피연산자 1
+			let y = Math.floor(Math.random() * 101); // 피연산자 2
+			
+			// Math.random() : 0 이상 1 미만의 소수 반환 -> 101을 곱해야 100까지 출력 가능
+			// Math.floor() : 소수점 아래 버림 -> 정수로 변경
+			
+			
+			// 연산자
+			let op = ['+', '-'];
+			let ran = Math.floor(Math.random() * op.length); // 0 or 1
+			
+			
+			// 문제
+			document.querySelector('#question').value = `${x} ${op[ran]} ${y}`;
+			
+			if(op[ran] === '+') {
+				result = x + y;
+			} else {
+				result = x - y;
+			}
+			
+			// 문제 정답
+			answer = '';
+			document.querySelector('#answer').value = answer;
+		});
+	
+	
+		// 정답 입력
+		answer = '';
+		
+		// 0 입력
+		document.querySelector('#zero').addEventListener('click', function() {
+			answer += 0;
+			document.querySelector('#answer').value = answer;
+		});
+	
+		// 1 입력
+		document.querySelector('#one').addEventListener('click', function() {
+			answer += 1;
+			document.querySelector('#answer').value = answer;
+		});
+		
+		// 2 입력
+		document.querySelector('#two').addEventListener('click', function() {
+			answer += 2;
+			document.querySelector('#answer').value = answer;
+		});
+		
+		// 3 입력
+		document.querySelector('#three').addEventListener('click', function() {
+			answer += 3;
+			document.querySelector('#answer').value = answer;
+		});
+		
+		// 4 입력
+		document.querySelector('#four').addEventListener('click', function() {
+			answer += 4;
+			document.querySelector('#answer').value = answer;
+		});
+		
+		// 5 입력
+		document.querySelector('#five').addEventListener('click', function() {
+			answer += 5;
+			document.querySelector('#answer').value = answer;
+		});
+		
+		// 6 입력
+		document.querySelector('#six').addEventListener('click', function() {
+			answer += 6;
+			document.querySelector('#answer').value = answer;
+		});
+		
+		// 7 입력
+		document.querySelector('#seven').addEventListener('click', function() {
+			answer += 7;
+			document.querySelector('#answer').value = answer;
+		});
+		
+		// 8 입력
+		document.querySelector('#eight').addEventListener('click', function() {
+			answer += 8;
+			document.querySelector('#answer').value = answer;
+		});
+		
+		// 9 입력
+		document.querySelector('#nine').addEventListener('click', function() {
+			answer += 9;
+			document.querySelector('#answer').value = answer;
+		});
+		
+		
+		// - (음수 기호) 입력 
+		document.querySelector('#neg').addEventListener('click', function() {
+			if(isNaN(String(answer)[0])) { // 첫 글자가 숫자가 아닌 경우
+				answer = answer.slice(1);  // 첫 글자 삭제
+			} else { 				 // 첫 글자가 숫자인 경우
+				answer = '-'+answer; // 음수 기호 입력 
+			}
+			document.querySelector('#answer').value = answer;
+		});
+		
+		
+		// 마지막 글자 지우기 (del)
+		document.querySelector('#del').addEventListener('click', function() {
+			answer = answer.slice(0, -1);
+			document.querySelector('#answer').value = answer;
+		});
+		
+		
+		// 답안 제출 (submit)
+		document.querySelector('#submit').addEventListener('click', function() {
+			let submit = document.querySelector('#answer').value;
+			if(result == submit) {
+				alert('✅ 정답입니다');
+			} else {
+				alert('❌ 오답입니다');
+			}
+			
+			answer = '';
+			document.querySelector('#answer').value = answer;
+		});
+
+	</script>	
+</body>
+</html>
