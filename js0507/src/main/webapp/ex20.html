@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	// 다중 할당
+	let arr = ['미야', '란가', '레키'];
+	let a = arr[0];
+	let b = arr[1];
+	let c = arr[2];
+	
+	console.log(a, b, c);
+	
+	let [x, y, z] = arr;
+	console.log(x, y, z);
+	
+	let obj = {name:'미야', age:15}
+	let {name, age} = obj;
+	console.log(name, age);
+</script>
+</body>
+</html>

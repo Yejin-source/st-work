@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	let a = [];
+	console.log('배열 type:', typeof a);
+	if(Array.isArray(a)) {
+		console.log('배열입니다.');
+	} else {
+		console.log('객체입니다.');
+	}
+	
+	let b = ()=>alert('test');
+	console.log('함수 type:', typeof b);
+	
+	let c = {};
+	console.log('객체 type:', typeof c);
+	if(Array.isArray(c)) {
+		console.log('배열입니다.');
+	} else {
+		console.log('객체입니다.');
+	}
+</script>
+</body>
+</html>

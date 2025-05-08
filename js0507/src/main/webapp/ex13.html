@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	// 정보은닉, 캡슐화
+	class Member {
+		#age; // private age
+		constructor(name='guest', age=0) { // 초기화
+			this.name = name;
+			this.#age = age;
+		}
+		
+		getAge() { // public getter
+			return this.#age; 
+		}
+		
+		setAge(age) { // 수정 가능하게 만들기
+			this.#age = age;
+		}
+	}
+	
+	// let m1 = new Member(); // guest, 0
+	let m2 = new Member('토비오', 17); // 토비오, 17
+	m2.name = '오이카와'; // 수정 가능
+	// m2.#age = 18;    // 수정 불가능
+	m2.setAge(18); 		// 수정 가능
+	alert(m2.name + m2.getAge()); // getter를 이용해서 읽는 게 가능
+	
+</script>
+</body>
+</html>

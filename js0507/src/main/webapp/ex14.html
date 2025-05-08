@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	const product = { // const: 상수
+		name : '망고',
+		type : '당절임',
+		madein : '필리핀',
+		print : function() { // 함수, 메서드 만들 때 사용 가능
+			alert(this.name);
+		},
+		show : () => { // 함수를 만들 때만 사용
+			alert('show' + this.name); // this 사용 불가능
+		},
+		printType() { // 메서드 문법 | == printType : function(){...}
+			alert(this.type);
+		},
+	};
+	
+	// product가 변할 수 없다는 것이지 product 값은 변할 수 있음
+	product.type = '설탕절임';
+	
+	alert(product['type']);
+	alert(product.type);
+	
+	
+	product.print();
+	product.show(); // show는 함수이기 때문에 show 안에 this가 .dkvdp product를 가리키진 않음
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/lodash.js" type="text/javascript"></script>
+
+<script>
+	let db = [
+		{name:'토게', age:18, gender:'남'},
+		{name:'사토루', age:30, gender:'남'},
+		{name:'메구미', age:17, gender:'남'}
+	];
+	
+	// 객체배열을 정렬해 주는 API
+	let sortDb = _.sortBy(db, (x) => x.age);
+	
+	console.log(db);
+	
+	console.log(sortDb);
+</script>
+</head>
+<body>
+
+</body>
+</html>

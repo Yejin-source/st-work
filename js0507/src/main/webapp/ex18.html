@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div><input type="text" id="a" readonly="readonly"></div>
+
+<div>
+	<input type="text" id="txtB">
+	<button type="button" id="btnB">btnB</button>
+</div>
+
+<div>
+	<input type="text" id="txtC">
+	<button type="button" id="btnC">btnC</button>
+</div>
+
+<script>
+
+	// Number API
+	let a = 3.141592;
+	// console.log(a.toFixed(2));
+	document.querySelector('#a').value = a.toFixed(2);
+	
+	document.querySelector('#btnB').addEventListener('click', function(){
+		let txtB = document.querySelector('#txtB').value;
+		if(txtB=='' || isNaN(txtB)==false) { // 공백 X, 숫자 X
+			alert('숫자이거나 공백입니다');
+		} else {
+			alert(txtB); // 문자일 때만 출력
+		}
+	});
+	
+	
+	//String API
+	document.querySelector('#btnC').addEventListener('click', function(){
+		let arr = document.querySelector('#txtC').value.split(',');
+		arr.forEach(function (item) {
+			console.log(item);
+		});
+	});
+	
+	
+	// JQuery API - 브라우저(문서객체) API를 단순화 시켜놓은 API
+	$('#btnC').click(function(){
+
+	});
+	
+</script>
+</body>
+</html>
