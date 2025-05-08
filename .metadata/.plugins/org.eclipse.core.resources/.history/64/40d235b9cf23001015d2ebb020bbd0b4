@@ -1,6 +1,0 @@
-spring.application.name=app-js
-
-server.port=80
-
-spring.mvc.view.prefix=/WEB-INF/views/
-sping.mvc.view.suffix=.jsp

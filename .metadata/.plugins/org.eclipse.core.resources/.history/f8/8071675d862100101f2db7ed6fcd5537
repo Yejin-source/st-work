@@ -1,5 +1,0 @@
-package com.example.mybatistest.service;
-
-public interface IboardService {
-
-}

@@ -1,7 +1,0 @@
-package com.example.student;
-
-public class Student {
-	private String name;
-	private String gender;
-	private int age;
-}

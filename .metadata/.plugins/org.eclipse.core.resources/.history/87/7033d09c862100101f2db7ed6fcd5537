@@ -1,9 +1,0 @@
-package com.example.mybatistest.service;
-
-import java.util.List;
-
-import com.example.mybatistest.dto.Board;
-
-public interface IboardService {
-	List<Board> getAll();
-}

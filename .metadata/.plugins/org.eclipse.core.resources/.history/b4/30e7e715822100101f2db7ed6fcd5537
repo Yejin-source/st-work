@@ -1,9 +1,0 @@
-package com.example.mybatistest.mapper;
-
-import org.apache.ibatis.annotations.Mapper;
-
-@Mapper
-public interface CommentMapper {
-	void deleteByBoardNo(int boardNo);
-	void delete(int commentNo);
-}
