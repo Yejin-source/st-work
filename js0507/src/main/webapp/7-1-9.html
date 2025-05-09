@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="first" style="background-color: yellow;">
+		<h1>1</h1>
+	</div>
+	
+	<div id="second" style="background-color: green;">
+		<h1>2</h1>
+	</div>
+	
+	<script>
+		let targetDiv = document.createElement('div');
+		targetDiv.textContent = 'XXX';
+		
+		let toFirst = function () {
+			document.querySelector('#first').append(targetDiv);
+			setTimeout(toSecond, 500);
+		};
+
+		let toSecond = function () {
+			document.querySelector('#second').append(targetDiv);
+			setTimeout(toFirst, 500);
+		};
+		
+		toFirst();
+	</script>
+</body>
+</html>
