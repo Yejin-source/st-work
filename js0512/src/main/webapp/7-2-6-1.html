@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>	
+	비밀번호: <input type="password" id="pw1"><br>
+	확인: <input type="password" id="pw2"><br>
+	<button id="btn" disabled="disabled">입력</button>
+	
+	<script>
+		// 유효성 검사
+	
+		document.querySelector('#pw1').addEventListener('focus', function(){
+			document.querySelector('#btn').disabled = true; // 버튼 비활성화
+		});
+		
+		document.querySelector('#pw2').addEventListener('focus', function(){
+			document.querySelector('#btn').disabled = true;
+		});
+	
+		
+		document.querySelector('#pw1').addEventListener('blur', function(){
+			if(this.value.length < 4) {
+				alert('pw는 4글자 이상입니다');
+			} else {
+				document.querySelector('#pw2').focus();
+			}
+		});
+		
+		document.querySelector('#pw2').addEventListener('blur', function(){
+			if(this.value != document.querySelector('#pw1').value) {
+				alert('pw1과 pw2는 다릅니다');
+				document.querySelector('#btn').disabled = true;
+			} else {
+				// pw1과 pw2가 일치하면 버튼 활성화
+				document.querySelector('#btn').disabled = false;
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded', function() {
+			const target = document.querySelector('#target');
+			const counter = document.querySelector('#counter');
+			
+			// 키보드 이벤트
+			target.addEventListener('keyup', function() {
+				const length = target.value.length;
+				counter.textContent = length;
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>글자 수 : <span id="counter"></span></h1>
+	<textarea id="target" rows="3" cols="50"></textarea>
+</body>
+</html>

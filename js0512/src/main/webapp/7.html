@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<input type="button" id="btn" value="ON">
+	
+	<script>
+	// 이벤트 발생 객체
+	
+	/*
+		document.querySelector('#btn').addEventListener('click', function () {
+			if(document.querySelector('#btn').value == 'ON') {
+				document.querySelector('#btn').value = 'OFF'
+			} else {
+				document.querySelector('#btn').value = 'ON'
+			}
+		});
+	
+	
+		document.querySelector('#btn').addEventListener('click', function () {
+			// 이벤트리스너(핸들러) 안에서 this는 이벤트 객체를 바인딩함
+			if(this.value == 'ON') {
+				this.value = 'OFF'
+			} else {
+				this.value = 'ON'
+			}
+		});
+	
+
+		// this는 화살표 함수 안에서는 사용할 수 없음
+		document.querySelector('#btn').addEventListener('click', ()=>{
+			if(this.value == 'ON') {
+				this.value = 'OFF'
+			} else {
+				this.value = 'ON'
+			}
+		});
+	*/
+	
+		// event.currentTarget 속성 사용 -> 내부코드를 바꾸지 않아도 돼서 유지보수가 뛰어남
+		document.querySelector('#btn').addEventListener('click', (e)=>{ // == function(e)
+			if(e.currentTarget.value == 'ON') {
+				e.currentTarget.value = 'OFF'
+			} else {
+				e.currentTarget.value = 'ON'
+			}
+		});
+	</script>
+</body>
+</html>

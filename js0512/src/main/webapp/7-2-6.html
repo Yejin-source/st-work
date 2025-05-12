@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- multiple select 태그 -->
+
+	<select id="food">
+		<option value="">:::선택:::</option>
+		<option>떡볶이</option>
+		<option>순대</option>
+		<option>어묵</option>
+		<option>튀김</option>
+	</select>
+	
+	<script>
+		document.querySelector('#food').addEventListener('change', function() {
+			let val = this.value;
+			if(val == '') {
+				alert('food가 선택되지 않았습니다');
+			} else {
+				alert(val);
+			}	
+		});
+	</script>
+</body>
+</html>
