@@ -1,34 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.ajax.mapper.ContinentMapper">
-	<select id="selectContinentList"
-			resultType="map">
-			
-			SELECT
-				continent_no continentNo
-				, continent_name continentName
-			FROM continent
-	</select>
-	
-	<select id="selectCountryList"
-			resultType="map"
-			parameterType="String"> <!-- 단일 파라미터가 아닐 경우 생략하지 않는 게 좋음 -->
-			
-			SELECT
-				country_no countryNo
-				, country_name countryName
-			FROM country
-			WHERE continent_no = #{continentNo}
-	</select>
-	
-	<select id="selectCityList"
-			resultType="map"
-			parameterType="string">
-	
-			SELECT
-				city_no	cityNo
-				, city_name cityName
-			FROM city
-			WHERE country_no = #{countryNo}	
+	<select id="selectContinentList" resultType="map">
+		SELECT
+			continent_no continentNo
+			, continent_name continentName
+		FROM continent
 	</select>
 </mapper>
