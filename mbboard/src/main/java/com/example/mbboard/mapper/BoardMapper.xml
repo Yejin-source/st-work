@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mbboard.mapper.BoardMapper">
+
+	<!-- 게시글 수정 -->
+	<update id="updateBoard" parameterType="com.example.mbboard.dto.Board">
+		UPDATE board
+		<set> <!-- update문을 따로 만들 필요 없음 -->
+			<if test="boardTitle != null">board_title = #{boardTitle},</if>
+			<if test="boardContent != null">board_content = #{boardContent},</if>
+			<if test="boardUser != null">board_user = #{boardUser}</if>
+		</set>
+		WHERE board_np = #{boardNo}
+	</update>
+	
+	
+	<!-- 게시글 목록 -->
+	<select id="selectBoardListByPage" parameterType="com.example.mbboard.dto.Page"
+										resultType="com.example.mbboard.dto.Board">
+		SELECT
+			board_no boardNo
+			, board_title boardTitle
+			, board_content boardContent
+			, board_user boardUser
+			, updatedate
+			, createdate
+		FROM board
+		<where>
+			<if test="searchWord != null and searchWord != ''">
+				board_title LIKE CONCAT('%', #{searchWord}, '%')
+			</if>
+		</where>
+		ORDER BY board_no
+		LIMIT #{beginRow}, #{rowPerPage}
+	</select>
+	
+	
+	<!-- 게시글 상세보기 -->
+	<select id="selectBoardOne" parameterType="com.example.mbboard.dto.Board"
+								resultType="com.example.mbboard.dto.Board">
+		SELECT
+			board_no boardNo
+			, board_title boardTitle
+			, board_content boardContent
+			, board_user boardUser
+			, updatedate
+			, createdate
+		FROM board
+		WHERE board_no = #{boardNo}
+	</select>
+	
+	
+	<!-- 게시글 추가 -->
+	<insert id="insertBoard" parameterType="com.example.mbboard.dto.Board">
+		INSERT INTO board (
+			board_title, board_content, board_user
+		) VALUES (
+			#{boardTitle}, #{boardContent}, #{boardUser}
+		)
+	</insert>
+	
+	
+	<!-- 게시글 삭제 -->
+	<delete id="deleteBoardByKey" parameterType="com.example.mbboard.dto.Board">
+		DELETE FROM board
+		WHERE board_no = #{boardNo}
+	</delete>
+	
+	
+	<!-- 검색된 게시글 -->
+	<select id="getBoardCount" parameterType="String">
+		SELECT COUNT(*)
+		FROM board		
+		WHERE board_title LIKE CONCAT('%', #{searchWord}, '%')
+	</select>
+</mapper>

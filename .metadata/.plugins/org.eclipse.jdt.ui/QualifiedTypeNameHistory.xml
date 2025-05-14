@@ -38,7 +38,6 @@
     <fullyQualifiedTypeName name="com.example.student.StudentService"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="com.example.mfu.mapper.BoardfileMapper"/>
-    <fullyQualifiedTypeName name="lombok.extern.slf4j.Slf4j"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.example.mfu.dto.Boardfile"/>
     <fullyQualifiedTypeName name="javax.management.RuntimeErrorException"/>
@@ -48,5 +47,12 @@
     <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="com.example.ajax.mapper.MemberMapper"/>
+    <fullyQualifiedTypeName name="com.example.ajax.dto.Member"/>
+    <fullyQualifiedTypeName name="com.example.mbboard.service.IBoardService"/>
+    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
+    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+    <fullyQualifiedTypeName name="com.example.mbboard.mapper.BoardMapper"/>
+    <fullyQualifiedTypeName name="lombok.extern.slf4j.Slf4j"/>
 </qualifiedTypeNameHistroy>

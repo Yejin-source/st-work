@@ -1,0 +1,15 @@
+package com.example.ajax.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class ajaxController {
+	@PostMapping("/ajaxRequest")
+	public String ajaxRequest(@RequestParam String str
+							, @RequestParam int num) {
+			System.out.println(str + num);
+			return "";
+	}
+}

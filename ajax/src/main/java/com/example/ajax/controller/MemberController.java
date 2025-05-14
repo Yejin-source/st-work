@@ -19,6 +19,7 @@ public class MemberController {
 	
 	@PostMapping("/joinMember")
 	public String joinMember(Member member) {
+		member.setAddress();
 		memberMapper.insertMember(member);
 		return "redirect:/joinMember";
 	}
