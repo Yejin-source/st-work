@@ -16,10 +16,10 @@
 	<section name="quick_assist_proposal_size">
 	</section>
 	<section name="NewClassCreationWizard.dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="288"/>
-		<item key="DIALOG_Y_ORIGIN" value="203"/>
+		<item key="DIALOG_X_ORIGIN" value="146"/>
+		<item key="DIALOG_Y_ORIGIN" value="209"/>
 		<item key="DIALOG_WIDTH" value="575"/>
-		<item key="DIALOG_HEIGHT" value="659"/>
+		<item key="DIALOG_HEIGHT" value="653"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 	<section name="OptionalMessageDialog.hide.">
@@ -30,8 +30,8 @@
 		<item key="create_unimplemented" value="true"/>
 	</section>
 	<section name="NewPackageCreationWizard.dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="196"/>
-		<item key="DIALOG_Y_ORIGIN" value="259"/>
+		<item key="DIALOG_X_ORIGIN" value="58"/>
+		<item key="DIALOG_Y_ORIGIN" value="267"/>
 		<item key="DIALOG_WIDTH" value="525"/>
 		<item key="DIALOG_HEIGHT" value="500"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

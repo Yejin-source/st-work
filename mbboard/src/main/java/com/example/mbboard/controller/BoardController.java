@@ -15,7 +15,7 @@ import com.example.mbboard.service.IBoardService;
 
 import lombok.extern.slf4j.Slf4j;
 
-
+@Slf4j
 @Controller
 public class BoardController {
 	@Autowired IBoardService boardService; // 인터페이스 형태로 의존성 주입 -> 디커플링
@@ -27,13 +27,10 @@ public class BoardController {
 			, @RequestParam(defaultValue = "") String searchWord) {
 		
 		Page p = new Page(8, currentPage, boardService.countBoardList(searchWord), searchWord);
-		System.out.println("currentPage = " + currentPage);
-		System.out.println("searchWord = " + searchWord);
-		System.out.println("beginRow = " + p.getBeginRow());
-		System.out.println("rowPerPage = " + p.getRowPerPage());
 		List<Board> list = boardService.getBoardList(p);
-		System.out.println("boardList size: " + list.size());
+		log.info("boardList size: " + list.size());
 		model.addAttribute("list", list); // 현재 요청에만 유효한 데이터 전송 방식
+		model.addAttribute("page", p);
 		return "boardList";
 	}
 	

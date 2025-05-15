@@ -10,7 +10,7 @@
 			<if test="boardContent != null">board_content = #{boardContent},</if>
 			<if test="boardUser != null">board_user = #{boardUser}</if>
 		</set>
-		WHERE board_np = #{boardNo}
+		WHERE board_no = #{boardNo}
 	</update>
 	
 	
