@@ -21,7 +21,7 @@ public class BoardController {
 	@Autowired IBoardService boardService; // 인터페이스 형태로 의존성 주입 -> 디커플링
 	
 	// 게시글 목록
-	@GetMapping({"/", "/boardList"})
+	@GetMapping("/boardList")
 	public String boardList(Model model
 			, @RequestParam(defaultValue = "1") int currentPage
 			, @RequestParam(defaultValue = "") String searchWord) {
@@ -54,7 +54,7 @@ public class BoardController {
 	@PostMapping("/addBoard")
 	public String addBoard(Board board) {
 		boardService.addBoard(board);
-		return "redirect:/";
+		return "redirect:/boardList";
 	}
 	
 	
@@ -78,7 +78,7 @@ public class BoardController {
 	@PostMapping("/deleteBoard")
 	public String deleteBoard(Board board) {
 		boardService.deleteBoard(board);
-		return "redirect:/";
+		return "redirect:/boardList";
 	}
 	
 }

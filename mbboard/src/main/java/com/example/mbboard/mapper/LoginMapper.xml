@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mbboard.mapper.LoginMapper">
+	
+	<!-- 로그인 -->
 	<select id="login" parameterType="com.example.mbboard.dto.Member"
 						resultType="com.example.mbboard.dto.Member">
 		SELECT 
@@ -10,4 +12,15 @@
 		WHERE member_id = #{memberId}
 		AND member_pw = #{memberPw}
 	</select>
+	
+	
+	<!-- 회원가입 -->
+	<insert id="joinMember" parameterType="com.example.mbboard.dto.Member"> 
+		INSERT INTO member (
+			member_id, member_pw
+		) VALUES (
+			#{memberId}, #{memberPw}
+		)	
+	</insert>
+	
 </mapper>

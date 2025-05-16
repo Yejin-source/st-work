@@ -4,4 +4,6 @@ import com.example.mbboard.dto.Member;
 
 public interface ILoginService {
 	Member login(Member paramMember);
+	
+	int joinMember(Member paramMember);
 }

@@ -19,4 +19,9 @@ public class LoginService implements ILoginService {
 	public Member login(Member paramMember) {
 		return loginMapper.login(paramMember);
 	}
+	
+	@Override
+	public int joinMember(Member paramMember) {
+		return loginMapper.joinMember(paramMember);
+	}
 }

@@ -9,7 +9,6 @@
 </head>
 <body>
 	<c:if test="${loginMember == null}">
-	
 		<!-- 로그인 상태가 아닌 경우 -->
 		<form method="post" action="/login">
 			<div>
@@ -20,7 +19,7 @@
 				<div><button type="submit">로그인</button></div>
 			</div>
 		</form>
-		<div><a href="/">회원가입</a></div>
+		<div><a href="/joinMember">회원가입</a></div>
 	</c:if>
 	
 	<c:if test="${loginMember != null}">

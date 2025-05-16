@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-	<a href="/" class="nav-link">📋 게시판 목록</a>
+	<a href="/boardList" class="nav-link">📋 게시판 목록</a>
 	
 	<h1>✍️ 게시글 추가</h1>
 

@@ -5,8 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.mbboard.dto.ConnectCount;
 import com.example.mbboard.dto.Member;
 import com.example.mbboard.service.ILoginService;
+import com.example.mbboard.service.IRootService;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class LoginController {
 	@Autowired ILoginService loginService;
+	@Autowired IRootService rootService;
 	
 	// 로그아웃
 	@GetMapping("/logout")
@@ -35,6 +38,14 @@ public class LoginController {
 		Member loginMember = loginService.login(paramMember);
 		if(loginMember != null) {
 			session.setAttribute("loginMember", loginMember);
+			// 멤버(ADMIN, MEMBER) 카운트 +1
+			ConnectCount cc = new ConnectCount();
+			cc.setMemberRole(loginMember.getMemberRole());
+			if(rootService.getConnectDateByKey(cc) == null) {
+				rootService.addConnectCount(cc); // 오늘 날짜 loginMember.getMemberRole()로 1행을 추가 카운트 1
+			} else {
+				rootService.modifyConnectCount(cc); // 오늘 날짜 loginMember.getMemberRole()로 수정 카운트 1
+			}
 		}
 		return "/member/memberHome";
 	}
@@ -51,5 +62,25 @@ public class LoginController {
 	@GetMapping("/admin/adminHome") 
 	public String adminHome() {
 		return "/admin/adminHome";
+	}
+	
+	
+	// 회원 페이지
+	@GetMapping("/member/memberHome")
+	public String memberHoe() {
+		return "member/memberHome";
+	}
+	
+	
+	// 회원가입
+	@GetMapping("/joinMember")
+	public String joinMember() {
+		return "joinMember";
+	}
+	
+	@PostMapping("/joinMember")
+	public String joinMember(Member paramMember) {
+		loginService.joinMember(paramMember);
+		return "redirect:/login";
 	}
 }
